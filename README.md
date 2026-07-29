@@ -51,6 +51,10 @@ jupyter notebook
 
 Then open any notebook from the numbered topic folders.
 
+## Study Tracker
+
+Open `study-tracker.html` in any browser to track completed topics, study hours, target dates, and notes. Progress is saved in the browser with localStorage.
+
 ## House Price Prediction Project
 
 The project is under `13. Projects`.
