@@ -1,74 +1,89 @@
-# Scikit-Learn Practice Projects
+# scikit-learn — Practical Machine Learning Examples
 
-This repository contains machine learning practice notebooks, datasets, saved models, and a small Flask-based house price prediction project.
+This repository is a hands-on collection of Python and scikit-learn notebooks. It covers core estimators, preprocessing, model selection, evaluation, model persistence and a complete Bengaluru house-price prediction project.
 
-## Folder Structure
+The original notebooks, datasets, model files and client/server project files are retained. Some examples originate from older tutorial workflows; read the explanations added around them and pay attention to any compatibility notes before running older cells with a newer scikit-learn release.
 
-1. **Bagging** - Bagging classifier examples with the diabetes dataset.
-2. **Decision Tree** - Decision tree examples using salary and Titanic datasets.
-3. **One Hot Encoding** - One-hot encoding and dummy variable examples.
-4. **Hyperparameter Tuning** - Model tuning examples.
-5. **K-Means Clustering** - K-Means clustering examples for income and Iris datasets.
-6. **K-Fold Cross Validation** - K-Fold and cross-validation examples.
-7. **K-Nearest Neighbor Classification** - KNN classification notebook.
-8. **Linear Regression** - Linear regression notebooks, sample CSV files, and saved models.
-9. **Logistic Regression** - Binary and multiclass logistic regression notebooks.
-10. **Multivariate Regression** - Multivariate regression examples.
-11. **Naive Bayes** - Naive Bayes examples for Titanic, wine, and spam classification.
-12. **Principal Component Analysis** - PCA example notebook.
-13. **Projects** - Bangalore house price prediction project with notebook, model, client, and Flask server.
-14. **Random Forest** - Random forest notebook.
-15. **Regularization** - Regularization notebook and housing dataset.
-16. **Support Vector Machine** - SVM notebook.
-17. **Train And Test Split** - Train/test split notebook and data.
-18. **Miscellaneous Files** - Additional compiled class files.
+## Learning path
 
-## Requirements
+| Stage | Existing folders | Key skills |
+|---|---|---|
+| Ensembles and trees | 01–02, 14 | Bagging, decision trees, random forests |
+| Categorical data | 03 | Encoding and dummy variables |
+| Model selection | 04, 06, 17 | Hyperparameter search, cross-validation, train/test split |
+| Clustering and neighbors | 05, 07 | K-Means, KNN |
+| Regression and classification | 08–11 | Linear/logistic regression, multivariate regression, Naive Bayes |
+| Dimensionality and generalization | 12, 15–16 | PCA, regularization, SVM |
+| Applied project | 13 | Bengaluru house-price workflow and prediction service |
 
-The notebooks use common Python data science packages:
+## Folder guide
 
-- Python
-- Jupyter Notebook
-- numpy
-- pandas
-- matplotlib
-- scikit-learn
-- flask and flask-cors for the house price prediction server
+1. Bagging
+2. Decision Tree
+3. One Hot Encoding
+4. Hyperparameter Tuning
+5. K-Means Clustering
+6. K-Fold Cross Validation
+7. K-Nearest Neighbor Classification
+8. Linear Regression
+9. Logistic Regression
+10. Multivariate Regression
+11. Naive Bayes
+12. Principal Component Analysis
+13. Projects — Bengaluru house prices
+14. Random Forest
+15. Regularization
+16. Support Vector Machine
+17. Train And Test Split
+18. Miscellaneous Files
 
-Install the main dependencies with:
+## How to study
+
+- Read the explanation before running each code cell.
+- Identify what each variable represents and inspect its shape.
+- Understand which columns are features and which column is the target.
+- Understand whether the task is regression, classification or clustering.
+- Check how training and test data are separated.
+- Interpret metrics instead of simply trying to maximize a score.
+- When a model is saved, understand which preprocessing steps and feature order it expects.
+
+## Setup
 
 ```bash
-pip install numpy pandas matplotlib scikit-learn flask flask-cors notebook
-```
-
-## Running Notebooks
-
-Start Jupyter from the repository root:
-
-```bash
+python -m venv .venv
+# Windows PowerShell:
+.venv\Scripts\Activate.ps1
+# macOS / Linux:
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install numpy pandas matplotlib seaborn scikit-learn jupyter joblib
 jupyter notebook
 ```
 
-Then open any notebook from the numbered topic folders.
+Older notebooks may use APIs or prediction formats that generate warnings in recent releases. The correct long-term pattern is to keep feature names and column order consistent between fit and predict, and to use Pipelines for preprocessing plus the estimator.
 
-## Study Tracker
+## Important terminology
 
-Open `study-tracker.html` in any browser to track completed topics, study hours, target dates, and notes. Progress is saved in the browser with localStorage.
+- **Estimator:** a scikit-learn object that learns from data through `fit`.
+- **Transformer:** an object that learns a data transformation and applies it through `transform`.
+- **Predictor:** an estimator that can produce predictions using `predict`.
+- **Pipeline:** a sequence of transformers and a final estimator treated as one workflow.
+- **Hyperparameter:** a setting chosen outside the model's learned coefficients, such as `max_depth`.
+- **Cross-validation:** repeated train/validation splits used to estimate how a model may generalize.
+- **Feature encoding:** converting categories such as city names into numeric representations a model can process.
 
-## House Price Prediction Project
+## Project: Bengaluru house prices
 
-The project is under `13. Projects`.
+The project demonstrates loading and cleaning real-estate data, engineering features such as BHK and price per square foot, handling location categories, training a regression model, tuning alternatives, saving a model and exposing prediction logic through a small server/client example.
 
-To run the Flask server:
+The dataset is historical and the resulting model is an educational example. Its predictions must not be treated as current property valuations or financial advice.
 
-```bash
-cd "13. Projects/server"
-python server.py
-```
+## Further reading
 
-Then open `13. Projects/client/app.html` in a browser. The client expects the API at `http://127.0.0.1:5000`.
+- [scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
+- [scikit-learn API reference](https://scikit-learn.org/stable/modules/classes.html)
+- [GeeksforGeeks scikit-learn tutorials](https://www.geeksforgeeks.org/machine-learning/)
+- [Pandas documentation](https://pandas.pydata.org/docs/)
+- [Matplotlib documentation](https://matplotlib.org/stable/)
 
-## Notes
-
-- Folder names have been numbered and capitalized for a cleaner learning sequence.
-- Generated Python cache files and Jupyter checkpoint folders are ignored by git.
+Open `study-tracker.html` to track your study progress.
